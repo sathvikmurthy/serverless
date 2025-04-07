@@ -1,11 +1,11 @@
 {
-  "name": "api",
+  "name": "serverless",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "api/index.js",
   "scripts": {
-    "start": "node index.js",
-    "dev": "nodemon index.js"
+    "start:server": "node api/index.js",
+    "dev:server": "nodemon api/index.js"
   },
   "author": "",
   "license": "ISC",
