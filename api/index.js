@@ -9,7 +9,6 @@ app.use(express.json());
 
 mongoose.connect(`${process.env.MONGO_URL}`, console.log("MongoDB Connected!"));
 
-
 // create a function
 app.post('/', async (req, res) => {
     try {
