@@ -1,0 +1,8 @@
+__pycache__/
+node_modules/
+.env
+*.log
+*.pyc
+.DS_Store
+.vscode/
+docker-volume/
