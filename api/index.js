@@ -1,11 +1,13 @@
 const express = require('express');
 const mongoose = require("mongoose");
+require('dotenv').config()
 
 const Function = require('./models/Function');
 
 const app = express();
-
 app.use(express.json());
+
+mongoose.connect(`${process.env.MONGO_URL}`, console.log("MongoDB Connected!"));
 
 
 // create a function
