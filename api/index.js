@@ -4,6 +4,8 @@ require('dotenv').config()
 
 const Function = require('./models/Function');
 
+const runFunction = require("../execution-engine/runExecutor");
+
 const app = express();
 app.use(express.json());
 
@@ -65,6 +67,23 @@ app.delete("/:id", async (req, res) => {
         res.send({ message: 'Function deleted' });
     } catch (err) {
         res.status(400).send({ error: err.message });
+    }
+})
+
+app.post("/:id/run", async (req, res) => {
+    try {
+        const func = await Function.findById(req.params.id);
+        if (!func) return res.status(404).send({ error: 'Function not found' });
+
+        const output = await runFunction({
+            code: func.code,
+            language: func.language,
+            timeout: func.timeout
+        });
+
+        res.send({ result: output });
+    } catch (err) {
+        res.status(500).send({ error: err.message });
     }
 })
 
