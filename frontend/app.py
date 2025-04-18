@@ -11,7 +11,7 @@ choice = st.sidebar.selectbox("Menu", menu)
 if choice == "Create Function":
     name = st.text_input("Function Name")
     code = st.text_area("Function Code", "print('Hello from Lambda')")
-    language = st.selectbox("Language", ["python"])
+    language = st.selectbox("Language", ["python","javascript"])
     timeout = st.slider("Timeout (sec)", 1, 10, 5)
     if st.button("Save Function"):
         res = requests.post(f"{API_URL}/functions", json={
